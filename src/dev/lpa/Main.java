@@ -32,8 +32,13 @@ public class Main {
         Set<Contact> unionAB = new HashSet<>();
         unionAB.addAll(phoneContacts);
         unionAB.addAll(emailContacts);
-        printData("(A \u222A B) union of emails (A) with phones (B)", unionAB);
+        printData("(A ∪ B) union of emails (A) with phones (B)", unionAB);
 
+
+        // The intersection of two or more sets returns only the elements they have in common
+        Set<Contact> intersectAB = new HashSet<>(emailContacts);
+        intersectAB.retainAll(phoneContacts);
+        printData("(A ∩ B) Intersect Emails (A) and phones (B)", intersectAB);
     }
 
     public static void printData (String header, Collection<Contact> contacts){
