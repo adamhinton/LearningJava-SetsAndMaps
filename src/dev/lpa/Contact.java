@@ -1,6 +1,7 @@
 package dev.lpa;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Contact {
@@ -54,5 +55,21 @@ public class Contact {
         newContact.emails.addAll(contact.emails);
         newContact.phones.addAll(contact.phones);
         return newContact;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+        Contact contact = (Contact) o;
+        return getName().equals(contact.getName()) &&
+                Objects.equals(emails, contact.emails) && Objects.equals(phones, contact.phones);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), emails, phones);
     }
 }
