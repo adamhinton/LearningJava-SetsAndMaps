@@ -1,7 +1,6 @@
 package dev.lpa;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 public class Contact {
@@ -63,13 +62,15 @@ public class Contact {
             return true;
         if (o == null || getClass() != o.getClass())
             return false;
+
         Contact contact = (Contact) o;
-        return getName().equals(contact.getName()) &&
-                Objects.equals(emails, contact.emails) && Objects.equals(phones, contact.phones);
+
+        return getName().equals(contact.getName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), emails, phones);
+        // A good idea to make sure objects that aren't the same class don't prod the same hashcode
+        return getName().hashCode() * 33;
     }
 }
