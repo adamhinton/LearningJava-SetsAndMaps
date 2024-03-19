@@ -62,6 +62,12 @@ public class Main {
         // This is all the contacts not shared between the two
         Set<Contact> symmetricDiff = new HashSet<>(AMinusB);
         symmetricDiff.addAll(BMinusA);
+        printData("Symmetric difference: Phones and emails", symmetricDiff);
+
+        // Another way to get symmetric differences. Get their union and subtract the intersection
+        Set<Contact> symmetricDiff2 = new HashSet<>(unionAB);
+        symmetricDiff2.removeAll(intersectAB);
+        printData("Symmetric Difference: phones and email", symmetricDiff2);
 
     }
 
