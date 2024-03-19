@@ -23,7 +23,16 @@ public class Main {
         int index = emails.indexOf(new Contact("Robin Hood"));
         Contact robinHood = emails.get(index);
         robinHood.addEmail("Sherwood Forest");
+        robinHood.addEmail("Sherwood Forest");
+        robinHood.replaceEmailIfExists("RHood@sherwoodforest.com", "RHood@sherwoodforest.org");
         System.out.println(robinHood);
+
+        // A is phone, B is emails
+        // This is creating a union of phone and email
+        Set<Contact> unionAB = new HashSet<>();
+        unionAB.addAll(phoneContacts);
+        unionAB.addAll(emailContacts);
+        printData("(A \u222A B) union of emails (A) with phones (B)", unionAB);
 
     }
 

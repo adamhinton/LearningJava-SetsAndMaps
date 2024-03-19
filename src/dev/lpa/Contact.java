@@ -87,4 +87,14 @@ public class Contact {
             System.out.println("added email " + email + " to " + name);
         }
     }
+
+    public void replaceEmailIfExists (String oldEmail, String newEmail){
+
+        if(emails.contains(oldEmail)){
+            emails.remove(oldEmail);
+            emails.add(newEmail);
+        }
+
+    }
+
 }
