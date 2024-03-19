@@ -56,7 +56,12 @@ public class Main {
 
         Set<Contact> BMinusA = new HashSet<>(phoneContacts);
         BMinusA.removeAll(emailContacts);
-        printData("(B - A) Phones (B) minus Emails (A)", AMinusB);
+        printData("(B - A) Phones (B) minus Emails (A)", BMinusA);
+
+
+        // This is all the contacts not shared between the two
+        Set<Contact> symmetricDiff = new HashSet<>(AMinusB);
+        symmetricDiff.addAll(BMinusA);
 
     }
 
