@@ -35,10 +35,29 @@ public class Main {
         printData("(A ∪ B) union of emails (A) with phones (B)", unionAB);
 
 
+        // INTERSECT
         // The intersection of two or more sets returns only the elements they have in common
         Set<Contact> intersectAB = new HashSet<>(emailContacts);
+        // This way shows emails
+        // Switching this to phonesC, retainall (EmailC) would retain phones
         intersectAB.retainAll(phoneContacts);
         printData("(A ∩ B) Intersect Emails (A) and phones (B)", intersectAB);
+
+        Set<Contact> intersectBA = new HashSet<>(phoneContacts);
+        intersectBA.retainAll(emailContacts);
+        printData("(B ∩ A) Intersect Phones (B) and Emails (A)", intersectBA);
+
+
+
+        // DIFFERENCE
+        Set<Contact> AMinusB = new HashSet<>(emailContacts);
+        AMinusB.removeAll(phoneContacts);
+        printData("(A - B) Emails (A) minus phones (B)", AMinusB);
+
+        Set<Contact> BMinusA = new HashSet<>(phoneContacts);
+        BMinusA.removeAll(emailContacts);
+        printData("(B - A) Phones (B) minus Emails (A)", AMinusB);
+
     }
 
     public static void printData (String header, Collection<Contact> contacts){
