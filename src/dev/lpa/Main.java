@@ -20,6 +20,11 @@ public class Main {
         printData("Email contacts", emailContacts);
 
 
+        int index = emails.indexOf(new Contact("Robin Hood"));
+        Contact robinHood = emails.get(index);
+        robinHood.addEmail("Sherwood Forest");
+        System.out.println(robinHood);
+
     }
 
     public static void printData (String header, Collection<Contact> contacts){

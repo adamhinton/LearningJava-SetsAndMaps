@@ -71,6 +71,20 @@ public class Contact {
     @Override
     public int hashCode() {
         // A good idea to make sure objects that aren't the same class don't prod the same hashcode
+        // comp sci isn't sure what the best numver is; probably any common one is fine.
         return getName().hashCode() * 33;
+    }
+
+
+    public void addEmail(String companyName){
+        String[] names = name.split(" ");
+        String email = "%c%s@%s.com".formatted(name.charAt(0), names[names.length -1], companyName.replaceAll(" ",
+                "").toLowerCase());
+        if(!emails.add(email)){
+            System.out.println(name + " already has email " + email);
+        }
+        else {
+            System.out.println("added email " + email + " to " + name);
+        }
     }
 }
