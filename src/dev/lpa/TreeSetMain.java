@@ -97,5 +97,15 @@ public class TreeSetMain {
         descendingSet.forEach(System.out::println);
         System.out.println("-".repeat(30));
 
+        // Remove charlie brown from descending set; this is reflected in original set as well
+
+        Contact lastContact = descendingSet.pollLast();
+        System.out.println("Removed: " + lastContact);
+        descendingSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
+        fullSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
+
+
     }
 }
