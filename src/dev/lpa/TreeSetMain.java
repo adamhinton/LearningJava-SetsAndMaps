@@ -110,6 +110,14 @@ public class TreeSetMain {
         // treesets are pretty cool
         Contact marion = new Contact("Maid Marion");
         var headSet = fullSet.headSet(marion);
+        headSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
+
+
+        var tailSet = fullSet.tailSet(marion);
+        tailSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
+
 
     }
 }
