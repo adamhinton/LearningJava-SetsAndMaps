@@ -75,11 +75,27 @@ public class TreeSetMain {
         }
         System.out.println("-".repeat(30));
 
-        for(Contact c : List.of(daffy, daisy, last, snoopy)){
-            System.out.printf("Ceiling(%s)=%s%n", c.getName(), fullSet.ceiling(c));
-            System.out.printf("higher(%s)=%s%n", c.getName(), fullSet.higher(c));
+        for(Contact c : List.of(daffy, daisy, first, archie)){
+            System.out.printf("floor(%s)=%s%n", c.getName(), fullSet.floor(c));
+            System.out.printf("lower(%s)=%s%n", c.getName(), fullSet.lower(c));
         }
+        System.out.println("-".repeat(30));
 
+
+        // Frex:
+        // Knowing the next card in a player's sorted Hand would make it easier to look for straights and flushes
+        // Risk battleodds, something about sorted dice rolls
+
+
+        // Now for methods that return different sets
+
+
+        // Descending sorted order
+        // This is backed by the original set. So any changes in the orig will be reflected here, and vice versa.
+        // That could be dangerous
+        NavigableSet<Contact> descendingSet = fullSet.descendingSet();
+        descendingSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
 
     }
 }
