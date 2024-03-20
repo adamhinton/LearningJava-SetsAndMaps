@@ -45,5 +45,29 @@ public class TreeSetMain {
         // Returns maximum (aka last) element in tree
         Contact last = fullSet.last();
 
+        System.out.println("-".repeat(30));
+        System.out.printf("min = %s, first = %s%n", min.getName(), first.getName());
+        System.out.printf("max = %s, last = %s %n", max.getName(), last.getName());
+        System.out.println("-".repeat(30));
+
+        NavigableSet<Contact> copiedSet = new TreeSet<>(fullSet);
+        // Removes and returns first/min
+        System.out.println("first = " + copiedSet.pollFirst());
+        System.out.println("last = " + copiedSet.pollLast());
+        copiedSet.forEach(System.out::println);
+        System.out.println("-".repeat(30));
+
+
+        // Now we look at ways to ID the closest match in the set to what we pass in to a method
+        // Daffy is in the set
+        Contact daffy = new Contact("Daffy Duck");
+        // Daisy isn't in the set
+        Contact daisy = new Contact ("Daisy Duck");
+        //snoopy would be last
+        Contact snoopy = new Contact("Snoopy");
+        // archie would be first
+        Contact archie = new Contact("Archie");
+
+
     }
 }
