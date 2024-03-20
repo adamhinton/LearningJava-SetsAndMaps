@@ -40,6 +40,10 @@ public class TreeSetMain {
         Contact max = Collections.max(fullSet, fullSet.comparator());
 
 
+        // Pretty cool, returns lowest (minimum) element in tree
+        Contact first = fullSet.first();
+        // Returns maximum (aka last) element in tree
+        Contact last = fullSet.last();
 
     }
 }
