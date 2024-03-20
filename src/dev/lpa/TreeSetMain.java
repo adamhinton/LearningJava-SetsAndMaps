@@ -68,6 +68,18 @@ public class TreeSetMain {
         // archie would be first
         Contact archie = new Contact("Archie");
 
+        // Higher and ceiling
+        for(Contact c : List.of(daffy, daisy, last, snoopy)){
+            System.out.printf("Ceiling(%s)=%s%n", c.getName(), fullSet.ceiling(c));
+            System.out.printf("higher(%s)=%s%n", c.getName(), fullSet.higher(c));
+        }
+        System.out.println("-".repeat(30));
+
+        for(Contact c : List.of(daffy, daisy, last, snoopy)){
+            System.out.printf("Ceiling(%s)=%s%n", c.getName(), fullSet.ceiling(c));
+            System.out.printf("higher(%s)=%s%n", c.getName(), fullSet.higher(c));
+        }
+
 
     }
 }
