@@ -1,0 +1,45 @@
+package dev.lpa;
+
+import java.util.*;
+
+public class TreeSetMain {
+    public static void main(String[] args) {
+
+        List<Contact> phones = ContactData.getData("phone");
+        List<Contact> emails = ContactData.getData("email");
+
+        // Runtime error if no comparator passed, e must impl Comparable. So we pass a comparator
+//        NavigableSet<Contact> sorted = new TreeSet<>(phones);
+
+        Comparator<Contact> mySort = Comparator.comparing(Contact::getName);
+        // Passing comparator because Contact doesn't implement Comparable
+        NavigableSet<Contact> sorted = new TreeSet<>(mySort);
+        sorted.addAll(phones);
+
+        sorted.forEach(System.out::println);
+
+        NavigableSet<String> justNames = new TreeSet<>();
+        phones.forEach( c-> justNames.add(c.getName()));
+        System.out.println(justNames);
+
+        NavigableSet<Contact> fullSet = new TreeSet<>(sorted);
+        fullSet.addAll(emails);
+        fullSet.forEach(System.out::println);
+
+
+
+        List<Contact> fullList = new ArrayList<>(phones);
+        fullList.addAll(emails);
+        fullList.sort(sorted.comparator());
+        System.out.println("-".repeat(30));
+        fullList.forEach(System.out::println);
+
+
+        // Contact doesn't impl Comparable, so need to pass comparator
+        Contact min = Collections.min(fullSet, fullSet.comparator());
+        Contact max = Collections.max(fullSet, fullSet.comparator());
+
+
+
+    }
+}
