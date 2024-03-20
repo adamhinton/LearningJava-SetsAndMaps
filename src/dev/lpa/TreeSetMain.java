@@ -98,7 +98,6 @@ public class TreeSetMain {
         System.out.println("-".repeat(30));
 
         // Remove charlie brown from descending set; this is reflected in original set as well
-
         Contact lastContact = descendingSet.pollLast();
         System.out.println("Removed: " + lastContact);
         descendingSet.forEach(System.out::println);
@@ -106,6 +105,11 @@ public class TreeSetMain {
         fullSet.forEach(System.out::println);
         System.out.println("-".repeat(30));
 
+
+        // headSet is all the elements who are strictly less than marion
+        // treesets are pretty cool
+        Contact marion = new Contact("Maid Marion");
+        var headSet = fullSet.headSet(marion);
 
     }
 }
