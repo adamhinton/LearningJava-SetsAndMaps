@@ -122,8 +122,15 @@ public class TreeSetMain {
         System.out.println("-".repeat(30));
 
         // Will return error on attempt to insert item outside its range. Very interesting
-        Contact linus = new Contact("Linus van Pelt");
-        var subset = fullSet.subSet(linus, marion);
+        Contact linus = new Contact("Linus Van Pelt");
+        var subset = fullSet.subSet(linus, false, marion, true);
+        subset.forEach(System.out::println);
+
+        // TreeSet specs:
+        // Higher cost than simple arrays etc
+        // But it's self-sorting which is very cool
+        // Continuously re-sorts itself as you add and remove els
+        // Also won't contain dupes
 
     }
 }
