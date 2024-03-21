@@ -134,5 +134,11 @@ public class TreeSetMain {
 
 
 
+        // STARTING MAPS
+        // HashMap is unordered
+        // LinkedHashMap is ordered by insertion order
+        // TreeMap is a sorted map
+
+
     }
 }
