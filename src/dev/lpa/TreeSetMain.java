@@ -108,16 +108,22 @@ public class TreeSetMain {
 
         // headSet is all the elements who are strictly less than marion
         // treesets are pretty cool
+        // Exclusive by default, it excludes the element passed. But we can override this. As opposed to tailSet
+        // which is inclusive by default.
         Contact marion = new Contact("Maid Marion");
-        var headSet = fullSet.headSet(marion);
+        var headSet = fullSet.headSet(marion, true);
         headSet.forEach(System.out::println);
         System.out.println("-".repeat(30));
 
 
-        var tailSet = fullSet.tailSet(marion);
+        // Tail set is inclusive by default, as opposed to headSet which is exclusive
+        var tailSet = fullSet.tailSet(marion, false);
         tailSet.forEach(System.out::println);
         System.out.println("-".repeat(30));
 
+        // Will return error on attempt to insert item outside its range. Very interesting
+        Contact linus = new Contact("Linus van Pelt");
+        var subset = fullSet.subSet(linus, marion);
 
     }
 }
