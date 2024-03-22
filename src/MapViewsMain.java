@@ -30,7 +30,7 @@ public class MapViewsMain {
         System.out.println("-".repeat(30));
 
         // This removes daffy from the list too
-        keysView.remove("Linus Van Pelt");
+        keysView.remove("Daffy Duck");
         System.out.println(keysView);
         contacts.forEach((k, v) -> System.out.println(v));
 
@@ -50,8 +50,21 @@ public class MapViewsMain {
 
 
 
+        System.out.println("-".repeat(30));
+        // Empty contacts
+        keysView.clear();
+        System.out.println(contacts);
 
+        ContactData.getData("email").forEach(c -> contacts.put(c.getName(), c));
+        ContactData.getData("phone").forEach(c -> contacts.put(c.getName(), c));
+        System.out.println(keysView);
 
+        var values = contacts.values();
+        values.forEach(System.out::println);
+
+        values.retainAll(ContactData.getData("email"));
+        System.out.println(keysView);
+        contacts.forEach((k, v) -> System.out.println(v));
     }
 
 }
