@@ -136,5 +136,25 @@ public class MapMain {
             return v;
         });
 
+
+
+        System.out.println("-".repeat(30));
+
+        Contact daisy = new Contact("Daisy Jane Duck", "daisyj@duck.com");
+
+        Contact replacedContact = contacts.replace("Daisy Duck", daisy);
+        System.out.println("daisy: " + daisy);
+        System.out.println("replacedContact : " + replacedContact);
+
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+
+        System.out.println("-".repeat(30));
+
+        Contact updatedDaisy = replacedContact.mergeContactData(daisy);
+        System.out.println("updatedDaisy: " + updatedDaisy);
+        boolean success = contacts.replace("Daisy Duck", replacedContact, updatedDaisy);
+
+
     }
 }
