@@ -106,6 +106,8 @@ public class MapMain {
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
 
 
+
+
         // Now computeIfPresent
         System.out.println("-".repeat(30));
 
@@ -117,6 +119,22 @@ public class MapMain {
         }
 
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+
+
+
+        // Now for replaceAll
+
+        System.out.println("-".repeat(30));
+
+        // Replace emails with email@funplace.com
+        contacts.replaceAll((k, v) ->{
+            String newEmail = k.replaceAll(" ", "") + "@funplace.com";
+
+            v.replaceEmailIfExists("DDuck@funplace.com", newEmail);
+            // if email wasn't dduck@... then email stays the same
+            return v;
+        });
 
     }
 }
