@@ -93,6 +93,17 @@ public class MapMain {
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
 
 
-    }
 
+
+        // Starting on compute and computeIf fxns
+        // Note, not clearing array this time
+        System.out.println("-".repeat(30));
+
+        for (String contactName : new String[] {"Daisy Duck", "Daffy Duck", "Scrooge McDuck"}){
+            contacts.compute(contactName, (k, v) -> new Contact(k));
+        }
+
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+    }
 }
