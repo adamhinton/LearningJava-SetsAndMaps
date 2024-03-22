@@ -18,12 +18,32 @@ public class MapMain {
         System.out.println("-".repeat(30));
 
 
-        Map<String, Contact> myHashMap = new HashMap<>();
+        // I did this right. Yay!
+        Map<String, Contact> contacts  = new HashMap<>();
         for (Contact contact : fullList){
-            myHashMap.put(contact.getName(), contact);
+            contacts.put(contact.getName(), contact);
         }
 
 
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+        System.out.println("-".repeat(30));
+        System.out.println(contacts.get("Charlie Brown"));
+
+        System.out.println(contacts.get("Chuck Brown"));
+
+        Contact defaultContact = new Contact("Chuck Brown");
+        System.out.println(contacts.getOrDefault("Chuck Brown", defaultContact));
+
+        System.out.println("-".repeat(30));
+        contacts.clear();
+        for (Contact contact : fullList){
+            Contact duplicate = contacts.put(contact.getName(),contact);
+            if(duplicate != null){
+                System.out.println("duplicate = " + duplicate);
+                System.out.println("current = " + contact);
+            }
+        }
 
     }
 
