@@ -149,11 +149,32 @@ public class MapMain {
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
 
 
+
         System.out.println("-".repeat(30));
 
         Contact updatedDaisy = replacedContact.mergeContactData(daisy);
         System.out.println("updatedDaisy: " + updatedDaisy);
-        boolean success = contacts.replace("Daisy Duck", replacedContact, updatedDaisy);
+        boolean success = contacts.replace("Daisy Duck", daisy, updatedDaisy);
+        if(success) {
+            System.out.println("Successfully replaced el");
+        }
+        else{
+            System.out.println("You suck, quit");
+        }
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+
+
+        System.out.println("-".repeat(30));
+
+        success = contacts.remove("Daisy Duck", daisy);
+        if(success){
+            System.out.println("Successful remove");
+        }
+        else{
+            System.out.println("You suck!");
+        }
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
 
 
     }
