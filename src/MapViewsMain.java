@@ -1,10 +1,7 @@
 import dev.lpa.Contact;
 import dev.lpa.ContactData;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class MapViewsMain {
 
@@ -27,6 +24,33 @@ public class MapViewsMain {
         if(contacts.containsKey("Linus Van Pelt")){
             System.out.println("I like linux and it's in contacts");
         }
+
+
+
+        System.out.println("-".repeat(30));
+
+        // This removes daffy from the list too
+        keysView.remove("Linus Van Pelt");
+        System.out.println(keysView);
+        contacts.forEach((k, v) -> System.out.println(v));
+
+
+
+
+        System.out.println("-".repeat(30));
+        copyOfKeys.remove("Linus Van Pelt");
+        System.out.println(copyOfKeys);
+        contacts.forEach((k, v) -> System.out.println(v));
+
+
+
+        System.out.println("-".repeat(30));
+        keysView.retainAll(List.of("Linus Van Pelt", "Charlie Brown", "Robin Hood", "Mickey Mouse"));
+        contacts.forEach((k, v) -> System.out.println(v));
+
+
+
+
 
     }
 
