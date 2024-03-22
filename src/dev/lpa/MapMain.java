@@ -52,11 +52,42 @@ public class MapMain {
 
 
 
+        // PUTIFABSENT
+        // Only puts if key doesn't already exist
         System.out.println("-".repeat(30));
         contacts.clear();
 
         for (Contact contact : fullList){
             contacts.putIfAbsent(contact.getName(), contact);
+        }
+
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+
+
+
+        // Merge if needed
+        System.out.println("-".repeat(30));
+        contacts.clear();
+
+        for (Contact contact : fullList){
+            Contact duplicate = contacts.putIfAbsent(contact.getName(),contact);
+            if(duplicate != null){
+                contacts.put(contact.getName(), contact.mergeContactData(duplicate));
+            }
+        }
+
+        contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
+
+
+
+
+        // Now for a simpler MERGE
+        System.out.println("-".repeat(30));
+        contacts.clear();
+
+        for (Contact contact : fullList){
+            contacts.merge(contact.getName(), contact, (previous, current) -> previous.mergeContactData(current));
         }
 
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
