@@ -87,7 +87,7 @@ public class MapMain {
         contacts.clear();
 
         for (Contact contact : fullList){
-            contacts.merge(contact.getName(), contact, (previous, current) -> previous.mergeContactData(current));
+            contacts.merge(contact.getName(), contact, Contact::mergeContactData);
         }
 
         contacts.forEach((k, v) -> System.out.println("key: " + k + ", value: " + v));
