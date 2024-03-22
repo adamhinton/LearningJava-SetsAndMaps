@@ -4,6 +4,7 @@ import dev.lpa.ContactData;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class MapViewsMain {
 
@@ -17,6 +18,15 @@ public class MapViewsMain {
 
         Set<String> keysView = contacts.keySet();
         System.out.println(keysView);
+
+
+        // Now they're in alph order
+        Set<String> copyOfKeys = new TreeSet<>(contacts.keySet());
+        System.out.println(copyOfKeys);
+
+        if(contacts.containsKey("Linus Van Pelt")){
+            System.out.println("I like linux and it's in contacts");
+        }
 
     }
 
